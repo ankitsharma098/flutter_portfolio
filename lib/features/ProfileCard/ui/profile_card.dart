@@ -156,7 +156,7 @@ class ProfileCard extends StatelessWidget {
           // Download CV Button with responsive sizing
           ElevatedButton.icon(
             onPressed: () {
-              _launchUrl("https://drive.google.com/file/d/1c3nEml19ox1KUpEL_OsAQd5hsfBEvRfj/view?usp=sharing");
+              _launchUrl("https://drive.google.com/file/d/1HmkB4W8xz9-NTEYxgRMt-D-qWYS_hOJU/view?usp=sharing");
             },
             icon: Icon(Icons.download),
             label: Text("Download CV"),
