@@ -413,10 +413,10 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                   ),
                 ),
               SizedBox(width: 15),
-              if (project.liveUrl != null)
+              if (project.liveUrl != null && project.liveUrl!.isNotEmpty)
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Launch Live URL
+                    _launchUrl(project.liveUrl ?? "");
                   },
                   icon: Icon(Icons.language),
                   label: Text("Live Demo"),

@@ -35,7 +35,7 @@ class Project {
         "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762517/documents/resumes/rgjswl2by46sllv3yj9e.png",
       ],
       githubUrl: "https://github.com/ankitsharma098",
-      liveUrl: "https://career-bridge-demo.com",
+      //liveUrl: "https://career-bridge-demo.com",
     ),
 
     Project(
@@ -54,6 +54,7 @@ class Project {
       ],
       technologies: ["Flutter", "Dart", "SQLite"],
       githubUrl: "https://github.com/ankitsharma098/Inventory-Management",
+      liveUrl: "https://github.com/ankitsharma098/Inventory-Management/releases/tag/v1.0.0",
     ),
     Project(
       title: "AI-Powered Chatbot",
@@ -72,6 +73,7 @@ class Project {
       ],
       technologies: ["Flutter", "Dart", "Node.js", "AI APIs"],
       githubUrl: "https://github.com/ankitsharma098/ChatBot",
+      liveUrl: "https://github.com/ankitsharma098/ChatBot/releases/tag/v1.0.0",
     ),
     Project(
       title: "Screen Sense",
