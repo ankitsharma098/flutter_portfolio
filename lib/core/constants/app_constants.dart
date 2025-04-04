@@ -1,7 +1,7 @@
 class AppConstants {
   // API URLs
-  // static const String baseUrl = 'http://13.60.19.132:8000';
-
+   static const String baseUrl = 'http://13.60.19.132:8000';
+  //static const String baseUrl = 'http://192.168.1.6:8000';
 
   // Asset Paths
   static const String logoPath = 'assets/logo/app_logo.png';
@@ -10,8 +10,8 @@ class AppConstants {
   static const String github = 'https://github.com/ankitsharma098';
 
   static const List<String> skills = [
-    'Flutter', 'Dart', 'Firebase', 'Node.js', 'Express.js', 'MongoDB',
-    'JavaScript', 'HTML', 'CSS', 'RESTful APIs', 'Snowboy', 'UI/UX Design',
+    'Flutter', 'Dart', 'Firebase', 'Node.js', 'Express.js', 'MongoDB',"Java"
+    'JavaScript', 'HTML', 'CSS', 'RESTful APIs', 'UI/UX Design',
     'Git', 'GitHub', 'Ubuntu', 'AWS EC2'
   ];
 }

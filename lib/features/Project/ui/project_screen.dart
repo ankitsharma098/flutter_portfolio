@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart' as carousel_slider;
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../Widgets/section_tile.dart';
 import '../model/project_model.dart';
@@ -15,6 +16,12 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      throw Exception('Could not launch $url');
+    }
+  }
   @override
   Widget build(BuildContext context) {
     final projects = Project.projects;
@@ -386,7 +393,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               if (project.githubUrl != null)
                 OutlinedButton.icon(
                   onPressed: () {
-                    // Launch GitHub URL
+                   _launchUrl(project.githubUrl);
                   },
                   icon: Icon(Icons.code),
                   label: Text("View Code"),

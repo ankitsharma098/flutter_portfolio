@@ -4,8 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
+import 'package:portfolio/core/constants/app_constants.dart';
+import 'package:portfolio/core/utils/snackBarUtils.dart';
 import 'package:url_launcher/url_launcher.dart'; // Added for URL launching
-
+import 'package:http/http.dart' as http;
 import '../../Widgets/section_tile.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -26,35 +28,31 @@ class _ContactScreenState extends State<ContactScreen> {
     if (_formKey.currentState == null || !_formKey.currentState!.validate()) {
       return;
     }
-
     setState(() => _isLoading = true);
-
-    final username = "nitinsharma7654321@gmail.com";
-    final password = "alfe cmze euua glkv";
-
-    final smtpServer = gmail(username, password);
-
-    final message = Message()
-      ..from = Address(_emailController.text, _nameController.text)
-      ..recipients.add('nitinsharma7654321@gmail.com')
-      ..subject = 'Contact Form Message from ${_nameController.text}'
-      ..text = _messageController.text;
-
     try {
-      final sendReport = await send(message, smtpServer);
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Message sent successfully!')),
+      final response = await http.post(
+        Uri.parse('${AppConstants.baseUrl}/send-email'),
+        body: {
+          'name': _nameController.text,
+          'email': _emailController.text,
+          'message': _messageController.text,
+        },
       );
-      _formKey.currentState!.reset();
+
+      if (response.statusCode == 200) {
+        SnackBarUtils.showGreenSnackBar("Message sent successfully!", context);
+
+        _formKey.currentState!.reset();
+      } else {
+        throw Exception('Failed to send email');
+      }
     } catch (e) {
-      print("Errpr $e");
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to send message: $e')),
-      );
+      SnackBarUtils.showRedSnackBar('Failed to send message: $e', context);
     } finally {
       setState(() => _isLoading = false);
     }
   }
+
 
   @override
   void dispose() {

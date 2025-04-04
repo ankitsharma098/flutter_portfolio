@@ -4,7 +4,7 @@ class Project {
   final List<String> features;
   final List<String> technologies;
   final List<String>? mockupImages;
-  final String? githubUrl;
+  final String githubUrl;
   final String? liveUrl;
 
   Project({
@@ -13,7 +13,7 @@ class Project {
     required this.features,
     required this.technologies,
     this.mockupImages,
-    this.githubUrl,
+    required this.githubUrl,
     this.liveUrl,
   });
 
@@ -34,7 +34,7 @@ class Project {
         "assets/carer_bridge/jobs.png",
         "assets/carer_bridge/stats.png",
       ],
-      githubUrl: "https://github.com/ankitsharma098/career-bridge",
+      githubUrl: "https://github.com/ankitsharma098",
       liveUrl: "https://career-bridge-demo.com",
     ),
 
@@ -53,7 +53,7 @@ class Project {
 
       ],
       technologies: ["Flutter", "Dart", "SQLite"],
-      githubUrl: "https://github.com/ankitsharma098",
+      githubUrl: "https://github.com/ankitsharma098/Inventory-Management",
     ),
     Project(
       title: "AI-Powered Chatbot",
@@ -71,7 +71,7 @@ class Project {
         "assets/ai/text to speech 1.png",
       ],
       technologies: ["Flutter", "Dart", "Node.js", "AI APIs"],
-      githubUrl: "https://github.com/ankitsharma098",
+      githubUrl: "https://github.com/ankitsharma098/ChatBot",
     ),
     Project(
       title: "Screen Sense",
@@ -88,7 +88,7 @@ class Project {
 
       ],
       technologies: ["Flutter", "Dart", "Local Storage"],
-      githubUrl: "https://github.com/ankitsharma098",
+      githubUrl: "https://github.com/ankitsharma098/Screen-Timer",
     ),
   ];
 }
