@@ -143,15 +143,24 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                   pauseAutoPlayInFiniteScroll: true,
                 ),
                 items: project.mockupImages!.map((imageUrl) {
-                  return CachedNetworkImage(
-                    imageUrl: imageUrl,
+                  return Image.network(
+                    imageUrl,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Center(
-                      child: CircularProgressIndicator(
-                        color: theme.colorScheme.primary,
-                      ),
-                    ),
-                    errorWidget: (context, url, error) => Center(
+                    headers: {
+                      'Access-Control-Allow-Origin': '*',
+                    },
+                    loadingBuilder: (context, child, loadingProgress) {
+                      if (loadingProgress == null) return child;
+                      return Center(
+                        child: CircularProgressIndicator(
+                          color: theme.colorScheme.primary,
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                              : null,
+                        ),
+                      );
+                    },
+                    errorBuilder: (context, url, error) => Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -507,23 +516,36 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                       pauseAutoPlayInFiniteScroll: true,
                     ),
                     items: project.mockupImages!.map((imageUrl) {
-                      return CachedNetworkImage(
-                        imageUrl: imageUrl,
+                      return Image.network(
+                        imageUrl,
                         fit: BoxFit.cover,
-                        placeholder: (context, url) => Center(
-                          child: CircularProgressIndicator(
-                            color: theme.colorScheme.primary,
-                          ),
-                        ),
-                        errorWidget: (context, url, error) => Center(
+                        headers: {
+                          'Access-Control-Allow-Origin': '*',
+                        },
+                        loadingBuilder: (context, child, loadingProgress) {
+                          if (loadingProgress == null) return child;
+                          return Center(
+                            child: CircularProgressIndicator(
+                              color: theme.colorScheme.primary,
+                              value: loadingProgress.expectedTotalBytes != null
+                                  ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
+                                  : null,
+                            ),
+                          );
+                        },
+                        errorBuilder: (context, url, error) => Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Icon(Icons.image_not_supported,
-                                  color: Colors.white, size: 30),
+                                  color: theme.colorScheme.primary, size: 40),
                               SizedBox(height: 10),
-                              Text("App UI",
-                                style: TextStyle(color: Colors.white),
+                              Text("App UI\nMockup",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: theme.colorScheme.primary,
+                                    fontWeight: FontWeight.bold
+                                ),
                               ),
                             ],
                           ),

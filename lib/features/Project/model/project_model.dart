@@ -29,10 +29,10 @@ class Project {
       ],
       technologies: ["Flutter", "Dart", "Node.js", "MongoDB", "Express.js","REST APIs"],
       mockupImages: [
-        "assets/carer_bridge/home.png",
-        "assets/carer_bridge/job stats.png",
-        "assets/carer_bridge/jobs.png",
-        "assets/carer_bridge/stats.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762449/documents/resumes/fs2d7pqvmr0efdgwlfkq.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762472/documents/resumes/esgvazq3hkhea0n1jcvx.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762497/documents/resumes/vlfc1dii6kokp3iqjx9o.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762517/documents/resumes/rgjswl2by46sllv3yj9e.png",
       ],
       githubUrl: "https://github.com/ankitsharma098",
       liveUrl: "https://career-bridge-demo.com",
@@ -45,10 +45,10 @@ class Project {
         "Add, edit, delete, search, and sort inventory items effortlessly"
       ],
       mockupImages: [
-        "assets/inventory/home.png",
-       "assets/inventory/add.png",
-        "assets/inventory/edit.png",
-        "assets/inventory/search.png"
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762547/documents/resumes/o5d0feqgrzk2vxijbudp.png",
+       "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762573/documents/resumes/mhmivdfisyvyfaltascu.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762594/documents/resumes/nkavbh939lyqgqwhl45b.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762623/documents/resumes/efoayyyp6otgzhmyufsp.png"
 
 
       ],
@@ -64,11 +64,11 @@ class Project {
         "Local storage for saving generated voice responses"
       ],
       mockupImages: [
-        "assets/ai/home.png",
-        "assets/ai/ai assistant.png",
-        "assets/ai/search image.png",
-        "assets/ai/text to speech.png",
-        "assets/ai/text to speech 1.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762210/documents/resumes/cdro2pczbglimap3ay0v.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762323/documents/resumes/balplfxwene3cx6raryu.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762350/documents/resumes/zx4puitwlqei5sxft9zs.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762375/documents/resumes/twbtyake26p2jpysxwux.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762413/documents/resumes/cmenkbciq3nvtcggz9bc.png",
       ],
       technologies: ["Flutter", "Dart", "Node.js", "AI APIs"],
       githubUrl: "https://github.com/ankitsharma098/ChatBot",
@@ -82,9 +82,9 @@ class Project {
         "Detailed analytics"
       ],
       mockupImages: [
-        "assets/screen_sence/home.png",
-        "assets/screen_sence/app limit.png",
-        "assets/screen_sence/limit.png"
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762668/documents/resumes/oztzh5xb4xndvka3rcmx.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762698/documents/resumes/rmqfgquo3gl1acbgiopc.png",
+        "https://res.cloudinary.com/dhsqd2ku1/image/upload/v1743762719/documents/resumes/nndybdzzbu7wxkylwpd6.png"
 
       ],
       technologies: ["Flutter", "Dart", "Local Storage"],
