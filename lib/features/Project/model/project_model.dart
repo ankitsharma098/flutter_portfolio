@@ -29,8 +29,10 @@ class Project {
       ],
       technologies: ["Flutter", "Dart", "Node.js", "MongoDB", "Express.js","REST APIs"],
       mockupImages: [
-        "https://example.com/career-bridge-mockup1.png",
-        "https://example.com/career-bridge-mockup2.png"
+        "assets/carer_bridge/home.png",
+        "assets/carer_bridge/job stats.png",
+        "assets/carer_bridge/jobs.png",
+        "assets/carer_bridge/stats.png",
       ],
       githubUrl: "https://github.com/ankitsharma098/career-bridge",
       liveUrl: "https://career-bridge-demo.com",
@@ -43,8 +45,12 @@ class Project {
         "Add, edit, delete, search, and sort inventory items effortlessly"
       ],
       mockupImages: [
-        "https://example.com/career-bridge-mockup1.png",
-        "https://example.com/career-bridge-mockup2.png"
+        "assets/inventory/home.png",
+       "assets/inventory/add.png",
+        "assets/inventory/edit.png",
+        "assets/inventory/search.png"
+
+
       ],
       technologies: ["Flutter", "Dart", "SQLite"],
       githubUrl: "https://github.com/ankitsharma098",
@@ -58,8 +64,11 @@ class Project {
         "Local storage for saving generated voice responses"
       ],
       mockupImages: [
-    "https://example.com/career-bridge-mockup1.png",
-    "https://example.com/career-bridge-mockup2.png"
+        "assets/ai/home.png",
+        "assets/ai/ai assistant.png",
+        "assets/ai/search image.png",
+        "assets/ai/text to speech.png",
+        "assets/ai/text to speech 1.png",
       ],
       technologies: ["Flutter", "Dart", "Node.js", "AI APIs"],
       githubUrl: "https://github.com/ankitsharma098",
@@ -73,8 +82,10 @@ class Project {
         "Detailed analytics"
       ],
       mockupImages: [
-        "https://example.com/career-bridge-mockup1.png",
-        "https://example.com/career-bridge-mockup2.png"
+        "assets/screen_sence/home.png",
+        "assets/screen_sence/app limit.png",
+        "assets/screen_sence/limit.png"
+
       ],
       technologies: ["Flutter", "Dart", "Local Storage"],
       githubUrl: "https://github.com/ankitsharma098",

@@ -7,9 +7,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import '../../Widgets/section_tile.dart';
 import '../model/project_model.dart';
 
-class ProjectsScreen extends StatelessWidget {
+class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({Key? key}) : super(key: key);
 
+  @override
+  State<ProjectsScreen> createState() => _ProjectsScreenState();
+}
+
+class _ProjectsScreenState extends State<ProjectsScreen> {
   @override
   Widget build(BuildContext context) {
     final projects = Project.projects;
@@ -126,6 +131,9 @@ class ProjectsScreen extends StatelessWidget {
                   viewportFraction: 1.0,
                   enlargeCenterPage: false,
                   autoPlayInterval: Duration(seconds: 3),
+                  pauseAutoPlayOnTouch: true,
+                  pauseAutoPlayOnManualNavigate: true,
+                  pauseAutoPlayInFiniteScroll: true,
                 ),
                 items: project.mockupImages!.map((imageUrl) {
                   return CachedNetworkImage(
@@ -480,22 +488,41 @@ class ProjectsScreen extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
                   child: project.mockupImages != null && project.mockupImages!.isNotEmpty
-                      ? Image.network(
-                    project.mockupImages!.first,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) => Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(Icons.phone_android, color: Colors.white, size: 30),
-                          SizedBox(height: 10),
-                          Text(
-                            "App UI",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
+                      ? carousel_slider.CarouselSlider(
+                    options: carousel_slider.CarouselOptions(
+                      height: 204,  // Adjusted for mobile size
+                      autoPlay: true,
+                      viewportFraction: 1.0,
+                      enlargeCenterPage: false,
+                      autoPlayInterval: Duration(seconds: 3),
+                      pauseAutoPlayOnTouch: true,
+                      pauseAutoPlayOnManualNavigate: true,
+                      pauseAutoPlayInFiniteScroll: true,
                     ),
+                    items: project.mockupImages!.map((imageUrl) {
+                      return CachedNetworkImage(
+                        imageUrl: imageUrl,
+                        fit: BoxFit.cover,
+                        placeholder: (context, url) => Center(
+                          child: CircularProgressIndicator(
+                            color: theme.colorScheme.primary,
+                          ),
+                        ),
+                        errorWidget: (context, url, error) => Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.image_not_supported,
+                                  color: Colors.white, size: 30),
+                              SizedBox(height: 10),
+                              Text("App UI",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }).toList(),
                   )
                       : Center(
                     child: Column(
