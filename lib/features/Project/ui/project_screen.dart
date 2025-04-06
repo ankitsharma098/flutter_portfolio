@@ -22,6 +22,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
       throw Exception('Could not launch $url');
     }
   }
+
+  Map<int, bool> _expandedFeatures = {};
   @override
   Widget build(BuildContext context) {
     final projects = Project.projects;
@@ -64,7 +66,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     );
   }
 
-  Widget _buildProjectMockupRow(BuildContext context, Project project, bool imageOnLeft, int index) {
+  Widget _buildProjectMockupRow(
+      BuildContext context, Project project, bool imageOnLeft, int index) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
 
@@ -130,92 +133,92 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
             padding: EdgeInsets.all(10),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: project.mockupImages != null && project.mockupImages!.isNotEmpty
+              child: project.mockupImages != null &&
+                      project.mockupImages!.isNotEmpty
                   ? carousel_slider.CarouselSlider(
-                options: carousel_slider.CarouselOptions(
-                  height: 410,
-                  autoPlay: true,
-                  viewportFraction: 1.0,
-                  enlargeCenterPage: false,
-                  autoPlayInterval: Duration(seconds: 3),
-                  pauseAutoPlayOnTouch: true,
-                  pauseAutoPlayOnManualNavigate: true,
-                  pauseAutoPlayInFiniteScroll: true,
-                ),
-                items: project.mockupImages!.map((imageUrl) {
-                  return Image.network(
-                    imageUrl,
-                    fit: BoxFit.cover,
-                    headers: {
-                      'Access-Control-Allow-Origin': '*',
-                    },
-                    loadingBuilder: (context, child, loadingProgress) {
-                      if (loadingProgress == null) return child;
-                      return Center(
-                        child: CircularProgressIndicator(
-                          color: theme.colorScheme.primary,
-                          value: loadingProgress.expectedTotalBytes != null
-                              ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                              : null,
-                        ),
-                      );
-                    },
-                    errorBuilder: (context, url, error) => Center(
+                      options: carousel_slider.CarouselOptions(
+                        height: 410,
+                        autoPlay: true,
+                        viewportFraction: 1.0,
+                        enlargeCenterPage: false,
+                        autoPlayInterval: Duration(seconds: 3),
+                        pauseAutoPlayOnTouch: true,
+                        pauseAutoPlayOnManualNavigate: true,
+                        pauseAutoPlayInFiniteScroll: true,
+                      ),
+                      items: project.mockupImages!.map((imageUrl) {
+                        return Image.network(
+                          imageUrl,
+                          fit: BoxFit.cover,
+                          headers: {
+                            'Access-Control-Allow-Origin': '*',
+                          },
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                color: theme.colorScheme.primary,
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
+                          errorBuilder: (context, url, error) => Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.image_not_supported,
+                                    color: theme.colorScheme.primary, size: 40),
+                                SizedBox(height: 10),
+                                Text(
+                                  "App UI\nMockup",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      color: theme.colorScheme.primary,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }).toList(),
+                    )
+                  : Center(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.image_not_supported,
-                              color: theme.colorScheme.primary, size: 40),
-                          SizedBox(height: 10),
-                          Text("App UI\nMockup",
-                            textAlign: TextAlign.center,
+                          Icon(Icons.phone_android,
+                              color: Colors.white, size: 50),
+                          SizedBox(height: 20),
+                          Text(
+                            project.title,
+                            overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                color: theme.colorScheme.primary,
-                                fontWeight: FontWeight.bold
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          Divider(
+                            color: Colors.white30,
+                            indent: 40,
+                            endIndent: 40,
+                            height: 40,
+                          ),
+                          Text(
+                            "UI Mockup",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 14,
                             ),
                           ),
                         ],
                       ),
                     ),
-                  );
-                }).toList(),
-              )
-                  : Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                        Icons.phone_android,
-                        color: Colors.white,
-                        size: 50
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      project.title,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    Divider(
-                      color: Colors.white30,
-                      indent: 40,
-                      endIndent: 40,
-                      height: 40,
-                    ),
-                    Text(
-                      "UI Mockup",
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
             ),
           ),
 
@@ -402,7 +405,7 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
               if (project.githubUrl != null)
                 OutlinedButton.icon(
                   onPressed: () {
-                   _launchUrl(project.githubUrl);
+                    _launchUrl(project.githubUrl);
                   },
                   icon: Icon(Icons.code),
                   label: Text("View Code"),
@@ -433,7 +436,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     );
   }
 
-  Widget _buildProjectsMobileView(BuildContext context, List<Project> projects) {
+  Widget _buildProjectsMobileView(
+      BuildContext context, List<Project> projects) {
     return ListView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
@@ -448,7 +452,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
     );
   }
 
-  Widget _buildMobileProjectCard(BuildContext context, Project project, int index) {
+  Widget _buildMobileProjectCard(
+      BuildContext context, Project project, int index) {
     final theme = Theme.of(context);
     final size = MediaQuery.of(context).size;
 
@@ -503,70 +508,78 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 padding: EdgeInsets.all(8),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(12),
-                  child: project.mockupImages != null && project.mockupImages!.isNotEmpty
+                  child: project.mockupImages != null &&
+                          project.mockupImages!.isNotEmpty
                       ? carousel_slider.CarouselSlider(
-                    options: carousel_slider.CarouselOptions(
-                      height: 204,  // Adjusted for mobile size
-                      autoPlay: true,
-                      viewportFraction: 1.0,
-                      enlargeCenterPage: false,
-                      autoPlayInterval: Duration(seconds: 3),
-                      pauseAutoPlayOnTouch: true,
-                      pauseAutoPlayOnManualNavigate: true,
-                      pauseAutoPlayInFiniteScroll: true,
-                    ),
-                    items: project.mockupImages!.map((imageUrl) {
-                      return Image.network(
-                        imageUrl,
-                        fit: BoxFit.cover,
-                        headers: {
-                          'Access-Control-Allow-Origin': '*',
-                        },
-                        loadingBuilder: (context, child, loadingProgress) {
-                          if (loadingProgress == null) return child;
-                          return Center(
-                            child: CircularProgressIndicator(
-                              color: theme.colorScheme.primary,
-                              value: loadingProgress.expectedTotalBytes != null
-                                  ? loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes!
-                                  : null,
-                            ),
-                          );
-                        },
-                        errorBuilder: (context, url, error) => Center(
+                          options: carousel_slider.CarouselOptions(
+                            height: 204, // Adjusted for mobile size
+                            autoPlay: true,
+                            viewportFraction: 1.0,
+                            enlargeCenterPage: false,
+                            autoPlayInterval: Duration(seconds: 3),
+                            pauseAutoPlayOnTouch: true,
+                            pauseAutoPlayOnManualNavigate: true,
+                            pauseAutoPlayInFiniteScroll: true,
+                          ),
+                          items: project.mockupImages!.map((imageUrl) {
+                            return Image.network(
+                              imageUrl,
+                              fit: BoxFit.cover,
+                              headers: {
+                                'Access-Control-Allow-Origin': '*',
+                              },
+                              loadingBuilder:
+                                  (context, child, loadingProgress) {
+                                if (loadingProgress == null) return child;
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    color: theme.colorScheme.primary,
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
+                                            loadingProgress.expectedTotalBytes!
+                                        : null,
+                                  ),
+                                );
+                              },
+                              errorBuilder: (context, url, error) => Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.image_not_supported,
+                                        color: theme.colorScheme.primary,
+                                        size: 40),
+                                    SizedBox(height: 10),
+                                    Text(
+                                      "App UI\nMockup",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: theme.colorScheme.primary,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          }).toList(),
+                        )
+                      : Center(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Icon(Icons.image_not_supported,
-                                  color: theme.colorScheme.primary, size: 40),
+                              Icon(Icons.phone_android,
+                                  color: Colors.white, size: 30),
                               SizedBox(height: 10),
-                              Text("App UI\nMockup",
-                                textAlign: TextAlign.center,
+                              Text(
+                                project.title,
                                 style: TextStyle(
-                                    color: theme.colorScheme.primary,
-                                    fontWeight: FontWeight.bold
-                                ),
+                                    color: Colors.white, fontSize: 12),
+                                textAlign: TextAlign.center,
                               ),
                             ],
                           ),
                         ),
-                      );
-                    }).toList(),
-                  )
-                      : Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.phone_android, color: Colors.white, size: 30),
-                        SizedBox(height: 10),
-                        Text(
-                          project.title,
-                          style: TextStyle(color: Colors.white, fontSize: 12),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  ),
                 ),
               ),
             ),
@@ -580,7 +593,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                       decoration: BoxDecoration(
                         color: theme.colorScheme.primary.withOpacity(0.1),
                         borderRadius: BorderRadius.circular(15),
@@ -648,11 +662,47 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 }).toList(),
 
                 if (project.features.length > 2)
-                  TextButton(
-                    onPressed: () {
-                      // Show more features
-                    },
-                    child: Text("+ ${project.features.length - 2} more features"),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if (_expandedFeatures[index] == true)
+                        ...project.features.skip(2).map((feature) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 8),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Icon(
+                                  Icons.check_circle,
+                                  color: theme.colorScheme.primary,
+                                  size: 18,
+                                ),
+                                SizedBox(width: 10),
+                                Expanded(
+                                  child: Text(
+                                    feature,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      height: 1.4,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                      TextButton(
+                        onPressed: () {
+                          setState(() {
+                            _expandedFeatures[index] =
+                                !(_expandedFeatures[index] ?? false);
+                          });
+                        },
+                        child: Text((_expandedFeatures[index] == true)
+                            ? "Show less"
+                            : "+ ${project.features.length - 2} more features"),
+                      ),
+                    ],
                   ),
 
                 SizedBox(height: 15),
@@ -665,7 +715,8 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                       return Padding(
                         padding: const EdgeInsets.only(right: 8),
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                           decoration: BoxDecoration(
                             color: _getTechColor(tech, theme).withOpacity(0.1),
                             borderRadius: BorderRadius.circular(15),
@@ -686,28 +737,53 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
 
                 SizedBox(height: 20),
 
+                // Replace the current Row with buttons in _buildMobileProjectCard with this:
                 Row(
                   children: [
-                    Expanded(
-                      child: OutlinedButton(
-                        onPressed: () {
-                          // View project
-                        },
-                        child: Text("View Details"),
-                        style: OutlinedButton.styleFrom(
-                          foregroundColor: theme.colorScheme.primary,
-                          side: BorderSide(color: theme.colorScheme.primary),
+                    if (project.githubUrl != null)
+                      Expanded(
+                        child: OutlinedButton.icon(
+                          onPressed: () {
+                            _launchUrl(project.githubUrl!);
+                          },
+                          icon: Icon(Icons.code, size: 16),
+                          label:
+                              Text("View Code", style: TextStyle(fontSize: 13)),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: theme.colorScheme.primary,
+                            side: BorderSide(color: theme.colorScheme.primary),
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                          ),
                         ),
                       ),
-                    ),
+                    SizedBox(width: 10),
+                    if (project.liveUrl != null && project.liveUrl!.isNotEmpty)
+                      Expanded(
+                        child: ElevatedButton.icon(
+                          onPressed: () {
+                            _launchUrl(project.liveUrl!);
+                          },
+                          icon: Icon(Icons.language, size: 16),
+                          label:
+                              Text("Live Demo", style: TextStyle(fontSize: 13)),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: theme.colorScheme.primary,
+                            foregroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(vertical: 10),
+                          ),
+                        ),
+                      ),
                   ],
-                ),
+                )
               ],
             ),
           ),
         ],
       ),
-    ).animate().fadeIn(duration: 800.ms, delay: (index * 200).ms).moveY(begin: 30, end: 0);
+    )
+        .animate()
+        .fadeIn(duration: 800.ms, delay: (index * 200).ms)
+        .moveY(begin: 30, end: 0);
   }
 
   Color _getTechColor(String tech, ThemeData theme) {
