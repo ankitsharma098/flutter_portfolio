@@ -16,7 +16,7 @@ class Experience {
   static List<Experience> get experiences => [
         Experience(
           position: "Flutter Developer",
-          company: "3FiTech Communication Pvt. Ltd.",
+          company: "3FiTech Communication Private Limited",
           duration: "June 2025 – Nov 2025",
           responsibilities: [
             "Developed full-scale Flutter apps for cryptocurrency wallets, e-commerce (Zepto-like), and real-time chat platforms",
@@ -27,7 +27,7 @@ class Experience {
         ),
         Experience(
           position: "Flutter Developer",
-          company: "Metaphile Pvt. Ltd.",
+          company: "Metaphile Private Limited",
           duration: "June 2024 – May 2025",
           responsibilities: [
             "Engineered a full-scale ERP-based Flutter app for both students and teachers",
