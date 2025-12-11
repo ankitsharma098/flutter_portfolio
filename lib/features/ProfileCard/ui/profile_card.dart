@@ -107,7 +107,8 @@ class ProfileCard extends StatelessWidget {
               SizedBox(width: size.width * 0.02),
               _buildSocialButton(
                 icon: FontAwesomeIcons.envelope,
-                url: "https://mail.google.com/mail/?view=cm&fs=1&to=ankits45987@gmail.com",
+                url:
+                    "https://mail.google.com/mail/?view=cm&fs=1&to=ankits45987@gmail.com",
                 context: context,
                 size: size,
               ),
@@ -125,7 +126,6 @@ class ProfileCard extends StatelessWidget {
               context: context,
               size: size,
             ),
-
             _buildContactItem(
               icon: Icons.email,
               title: "Email",
@@ -133,7 +133,6 @@ class ProfileCard extends StatelessWidget {
               context: context,
               size: size,
             ),
-
             _buildContactItem(
               icon: Icons.location_on,
               title: "Location",
@@ -141,7 +140,6 @@ class ProfileCard extends StatelessWidget {
               context: context,
               size: size,
             ),
-
             _buildContactItem(
               icon: Icons.cake,
               title: "Birthday",
@@ -156,7 +154,8 @@ class ProfileCard extends StatelessWidget {
           // Download CV Button with responsive sizing
           ElevatedButton.icon(
             onPressed: () {
-              _launchUrl("https://drive.google.com/file/d/1iJIX1s8C8HwPunS2wMmMLLi5K-NxK7GY/view?usp=sharing");
+              _launchUrl(
+                  "https://drive.google.com/file/d/1jwWiH7znRKm3mjrXmczhU-4Il3RU2tYl/view?usp=sharing");
             },
             icon: Icon(Icons.download),
             label: Text("Download CV"),
@@ -165,8 +164,7 @@ class ProfileCard extends StatelessWidget {
               foregroundColor: Colors.white,
               padding: EdgeInsets.symmetric(
                   horizontal: (size.width * 0.02).clamp(16.0, 30.0),
-                  vertical: (size.height * 0.01).clamp(12.0, 15.0)
-              ),
+                  vertical: (size.height * 0.01).clamp(12.0, 15.0)),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),

@@ -13,10 +13,10 @@ class AppTheme {
       surface: Colors.white,
     ),
     scaffoldBackgroundColor: Color(0xFFF5F7FA),
-    cardTheme: CardTheme(
-      elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-    ),
+    // cardTheme: CardTheme(
+    //   elevation: 5,
+    //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    // ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 3,
@@ -42,10 +42,10 @@ class AppTheme {
       surface: Color(0xFF252A34),
     ),
     scaffoldBackgroundColor: Color(0xFF0F0F1A),
-    cardTheme: CardTheme(
-      elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-    ),
+    // cardTheme: CardTheme(
+    //   elevation: 5,
+    //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+    // ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 3,

@@ -14,16 +14,27 @@ class Experience {
   });
 
   static List<Experience> get experiences => [
-    Experience(
-      position: "Flutter Developer Intern",
-      company: "Metaphile Pvt. Ltd.",
-      duration: "June 2024 – Aug 2024",
-      responsibilities: [
-        "Engineered a full-scale ERP-based Flutter app for both students and teachers",
-        "Integrated Snowboy for hands-free voice command navigation functionalities",
-        "Developed seamless RESTful API integration using the Dio package",
-        "Implemented background services for real-time push notifications and data syncing using workmanager"
-      ],
-    ),
-  ];
+        Experience(
+          position: "Flutter Developer",
+          company: "3FiTech Communication Pvt. Ltd.",
+          duration: "June 2025 – Nov 2025",
+          responsibilities: [
+            "Developed full-scale Flutter apps for cryptocurrency wallets, e-commerce (Zepto-like), and real-time chat platforms",
+            "Built secure wallet features with live crypto price tracking and transaction handling",
+            "Implemented real-time chat with Firebase, WebSockets, and media sharing",
+            "Worked full-time in a fast-paced agile team, delivering production-ready features"
+          ],
+        ),
+        Experience(
+          position: "Flutter Developer",
+          company: "Metaphile Pvt. Ltd.",
+          duration: "June 2024 – May 2025",
+          responsibilities: [
+            "Engineered a full-scale ERP-based Flutter app for both students and teachers",
+            "Integrated Snowboy for hands-free voice command navigation functionalities",
+            "Developed seamless RESTful API integration using the Dio package",
+            "Implemented background services for real-time push notifications and data syncing using workmanager"
+          ],
+        ),
+      ];
 }
