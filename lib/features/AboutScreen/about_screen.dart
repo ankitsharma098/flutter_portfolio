@@ -3,7 +3,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 
 import '../Widgets/section_tile.dart';
 
-
 class AboutScreen extends StatelessWidget {
   const AboutScreen({Key? key}) : super(key: key);
 
@@ -55,7 +54,7 @@ class AboutScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "I am Ankit Sharma, a passionate Computer Science Graduate from IIMT Engineering College, Meerut, with expertise in Flutter, Dart, Node.js, and MongoDB.",
+          "I am Ankit Sharma, a Flutter Developer and Software Engineer with a B.Tech in Computer Science from IIMT Engineering College, Meerut. I specialize in building production-grade mobile applications using Flutter, Dart, and Firebase.",
           style: TextStyle(
             fontSize: 18,
             fontWeight: FontWeight.w500,
@@ -63,25 +62,34 @@ class AboutScreen extends StatelessWidget {
         ).animate().fadeIn(duration: 600.ms).moveX(begin: -30, end: 0),
         SizedBox(height: 20),
         Text(
-        "With a strong foundation in cross-platform development, backend architecture, and API integration, I specialize in building scalable and impactful applications that solve real-world challenges. I thrive on creating innovative solutions that enhance user experiences and bring efficiency to digital platforms.",
+          "Currently working at EVeez, I lead development of a live Flutter application serving 400+ daily active users on an e-bike rental platform. Previously at 3FI Tech Communications, I shipped 3+ production apps across crypto, fintech, and e-commerce domains — including a cryptocurrency trading platform with 10,000+ active users.",
           style: TextStyle(
             fontSize: 16,
           ),
-        ).animate().fadeIn(duration: 600.ms, delay: 200.ms).moveX(begin: -30, end: 0),
+        )
+            .animate()
+            .fadeIn(duration: 600.ms, delay: 200.ms)
+            .moveX(begin: -30, end: 0),
         SizedBox(height: 20),
         Text(
-          "My technical journey has equipped me with hands-on experience in Flutter, Dart, Node.js, Express.js, MongoDB, and Firebase. I'm constantly exploring new technologies and methodologies to stay at the cutting edge of development practices.",
+          "My technical stack spans Flutter/Dart for mobile, Node.js and Express.js for backend, MongoDB and Firebase for data, and AWS/Google Cloud for deployment. I have hands-on experience with BLoC state management, clean architecture, CI/CD pipelines, and RESTful API design.",
           style: TextStyle(
             fontSize: 16,
           ),
-        ).animate().fadeIn(duration: 600.ms, delay: 400.ms).moveX(begin: -30, end: 0),
+        )
+            .animate()
+            .fadeIn(duration: 600.ms, delay: 400.ms)
+            .moveX(begin: -30, end: 0),
         SizedBox(height: 20),
         Text(
-          "As a tech enthusiast and problem solver, I approach each project with creativity and attention to detail, ensuring robust and user-friendly applications. I'm always eager to take on new challenges and contribute to meaningful projects that make a difference.",
+          "As a problem solver and tech enthusiast, I approach every project with a focus on performance, scalability, and user experience — always eager to take on new challenges and deliver applications that make a real difference.",
           style: TextStyle(
             fontSize: 16,
           ),
-        ).animate().fadeIn(duration: 600.ms, delay: 400.ms).moveX(begin: -30, end: 0),
+        )
+            .animate()
+            .fadeIn(duration: 600.ms, delay: 600.ms)
+            .moveX(begin: -30, end: 0),
       ],
     );
   }
@@ -121,7 +129,7 @@ class AboutScreen extends StatelessWidget {
           ),
           SizedBox(height: 20),
           Text(
-            "Bachelor of Technology in Computer Science",
+            "Bachelor of Technology in Computer Science & Engineering",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -136,7 +144,48 @@ class AboutScreen extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            "2020 - 2024",
+            "Aug 2021 – Jul 2025",
+            style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "CGPA: 8.0 / 10",
+            style: TextStyle(
+              fontSize: 14,
+              color: Theme.of(context).colorScheme.secondary,
+            ),
+          ),
+          SizedBox(height: 20),
+          Divider(),
+          SizedBox(height: 15),
+          Row(
+            children: [
+              Icon(
+                Icons.school_outlined,
+                color: Theme.of(context).colorScheme.primary,
+                size: 20,
+              ),
+              SizedBox(width: 10),
+              Text(
+                "Higher Secondary",
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 8),
+          Text(
+            "Indus Global School, Hapur",
+            style: TextStyle(fontSize: 14),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "Mar 2020 – Apr 2021  |  94%",
             style: TextStyle(
               fontSize: 14,
               color: Theme.of(context).colorScheme.secondary,

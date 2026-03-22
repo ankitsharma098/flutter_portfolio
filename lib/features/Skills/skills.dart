@@ -28,68 +28,93 @@ class SkillsScreen extends StatelessWidget {
               _buildSkillCategory(
                 context,
                 "Mobile Development",
-                ["Flutter", "Dart",  "Android"],
+                ["Flutter", "Dart", "BLoC", "GetIt / Injectable", "Android"],
                 Icons.mobile_friendly,
                 theme.colorScheme.primary,
               ),
               _buildSkillCategory(
                 context,
                 "Backend Development",
-                ["Node.js", "Express.js", "REST APIs", ],
-                Icons.storage,
+                [
+                  "Node.js",
+                  "Express.js",
+                  "REST API Design",
+                  "Socket.IO",
+                  "JWT / OAuth",
+                  "Middleware"
+                ],
+                Icons.dns_rounded,
                 theme.colorScheme.secondary,
               ),
               _buildSkillCategory(
                 context,
                 "Databases",
-                ["MongoDB", "Firebase", "SQLite"],
+                [
+                  "MongoDB",
+                  "Firebase Firestore",
+                  "Firebase Realtime DB",
+                  "SQLite"
+                ],
                 Icons.storage_rounded,
                 theme.colorScheme.tertiary,
               ),
               _buildSkillCategory(
                 context,
+                "Cloud & DevOps",
+                [
+                  "AWS",
+                  "Google Cloud Console",
+                  "Firebase Hosting",
+                  "Google Play Store",
+                  "App Store",
+                  "CI/CD Pipelines"
+                ],
+                Icons.cloud_rounded,
+                Colors.indigo,
+              ),
+              _buildSkillCategory(
+                context,
+                "Web Technologies",
+                ["HTML", "CSS", "JavaScript", "React (Basic)"],
+                Icons.web_rounded,
+                Colors.orange,
+              ),
+              _buildSkillCategory(
+                context,
                 "Tools & Others",
-                ["Git", "GitHub", "VS Code","Android Studio", "AWS EC2"],
+                [
+                  "Git",
+                  "GitHub",
+                  "Postman",
+                  "Android Studio",
+                  "VS Code",
+                  "Firebase Crashlytics",
+                  "Google Analytics"
+                ],
                 Icons.build_circle,
                 Colors.teal,
               ),
+              _buildSkillCategory(
+                context,
+                "Programming Languages",
+                ["Dart", "JavaScript", "Python", "Java", "C"],
+                Icons.code_rounded,
+                Colors.deepPurple,
+              ),
             ],
           ),
-
-          // // Languages section
-          // Text(
-          //   "Programming Languages",
-          //   style: TextStyle(
-          //     fontSize: 20,
-          //     fontWeight: FontWeight.bold,
-          //   ),
-          // ),
-          // SizedBox(height: 20),
-          // Wrap(
-          //   spacing: 15,
-          //   runSpacing: 15,
-          //   children: [
-          //     "Dart",
-          //     "JavaScript",
-          //     "TypeScript",
-          //     "Python",
-          //     "Java",
-          //     "C++",
-          //     "HTML/CSS",
-          //   ].map((language) => _buildSkillChip(context, language)).toList(),
-          // ),
         ],
       ),
     );
   }
 
   Widget _buildSkillCategory(
-      BuildContext context,
-      String title,
-      List<String> skills,
-      IconData icon,
-      Color color,
-      ) {
+    BuildContext context,
+    String title,
+    List<String> skills,
+    IconData icon,
+    Color color,
+  ) {
     return Container(
       width: 280,
       padding: EdgeInsets.all(20),
@@ -111,42 +136,35 @@ class SkillsScreen extends StatelessWidget {
             children: [
               Icon(icon, color: color),
               SizedBox(width: 10),
-              Text(
-                title,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Text(
+                  title,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ],
           ),
           SizedBox(height: 15),
           ...skills.map((skill) => Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: Row(
-              children: [
-                Icon(Icons.check_circle_outline, color: color, size: 16),
-                SizedBox(width: 8),
-                Text(
-                  skill,
-                  style: TextStyle(fontSize: 16),
+                padding: const EdgeInsets.only(bottom: 10),
+                child: Row(
+                  children: [
+                    Icon(Icons.check_circle_outline, color: color, size: 16),
+                    SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        skill,
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          )),
+              )),
         ],
       ),
     ).animate().fadeIn(duration: 600.ms);
-  }
-
-  Widget _buildSkillChip(BuildContext context, String skill) {
-    return Chip(
-      label: Text(skill),
-      backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-      labelStyle: TextStyle(
-        color: Theme.of(context).colorScheme.primary,
-        fontWeight: FontWeight.w500,
-      ),
-    );
   }
 }

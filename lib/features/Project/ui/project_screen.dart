@@ -289,13 +289,15 @@ class _ProjectsScreenState extends State<ProjectsScreen> {
                 ),
               ),
               SizedBox(width: 10),
-              AutoSizeText(
-                project.title,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: theme.colorScheme.primary,
+              Expanded(
+                child: AutoSizeText(
+                  project.title,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: theme.colorScheme.primary,
+                  ),
                 ),
               ),
             ],

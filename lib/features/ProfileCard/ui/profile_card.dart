@@ -62,10 +62,7 @@ class ProfileCard extends StatelessWidget {
               ),
             ),
           ),
-
           SizedBox(height: size.height * 0.02),
-
-          // Name and Designation with responsive font sizes
           Text(
             "Ankit Sharma",
             style: TextStyle(
@@ -73,9 +70,7 @@ class ProfileCard extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-
           SizedBox(height: 5),
-
           Text(
             "Flutter Developer",
             style: TextStyle(
@@ -84,10 +79,16 @@ class ProfileCard extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-
+          SizedBox(height: 4),
+          Text(
+            "@ EVeez",
+            style: TextStyle(
+              fontSize: (size.width * 0.009).clamp(12.0, 14.0),
+              color: theme.colorScheme.secondary,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
           SizedBox(height: size.height * 0.02),
-
-          // Responsive Social Media Links
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -114,10 +115,7 @@ class ProfileCard extends StatelessWidget {
               ),
             ],
           ),
-
           SizedBox(height: size.height * 0.025),
-
-          // Contact Information with responsive spacing
           ...[
             _buildContactItem(
               icon: Icons.phone,
@@ -148,14 +146,11 @@ class ProfileCard extends StatelessWidget {
               size: size,
             ),
           ],
-
           SizedBox(height: size.height * 0.025),
-
-          // Download CV Button with responsive sizing
           ElevatedButton.icon(
             onPressed: () {
               _launchUrl(
-                  "https://drive.google.com/file/d/1jwWiH7znRKm3mjrXmczhU-4Il3RU2tYl/view?usp=sharing");
+                  "https://drive.google.com/file/d/1jhIyLBXQASC1AeLESanwqgpbNpLugSwo/view?usp=sharing");
             },
             icon: Icon(Icons.download),
             label: Text("Download CV"),
