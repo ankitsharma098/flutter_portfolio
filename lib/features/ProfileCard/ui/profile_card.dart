@@ -173,7 +173,7 @@ class ProfileCard extends StatelessWidget {
   }
 
   Widget _buildSocialButton({
-    required IconData icon,
+   required FaIconData icon,
     required String url,
     required BuildContext context,
     required Size size,
@@ -187,7 +187,7 @@ class ProfileCard extends StatelessWidget {
           color: theme.colorScheme.primary.withOpacity(0.1),
           borderRadius: BorderRadius.circular(12),
         ),
-        child: Icon(icon, color: theme.colorScheme.primary, size: 18),
+        child: FaIcon(icon, color: theme.colorScheme.primary, size: 18),
       ),
     );
   }
