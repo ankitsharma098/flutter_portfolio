@@ -263,7 +263,7 @@ class _ContactScreenState extends State<ContactScreen> {
                 color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
                 borderRadius: BorderRadius.circular(50),
               ),
-              child: Icon(icon, color: Theme.of(context).colorScheme.primary),
+              child: FaIcon(icon, color: Theme.of(context).colorScheme.primary),
             ),
             const SizedBox(width: 15),
             Column(
