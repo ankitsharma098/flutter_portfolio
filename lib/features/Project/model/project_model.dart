@@ -46,6 +46,8 @@ class Project {
             'https://res.cloudinary.com/dhsqd2ku1/image/upload/v1774165416/Screenshot_20260322_131250_xqvnoz.png'
           ],
           githubUrl: "https://github.com/ankitsharma098",
+          liveUrl: "https://apps.apple.com/in/app/bitesize-golf/id6758264576",
+          
         ),
         Project(
           title: "Career Bridge – Empowering Disabled Candidates",
