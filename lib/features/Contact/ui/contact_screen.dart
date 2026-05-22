@@ -226,7 +226,7 @@ class _ContactScreenState extends State<ContactScreen> {
 
   Widget _buildContactCard(
       BuildContext context, {
-        required IconData icon,
+        required FaIconData icon,
         required String title,
         required String content,
         required String url,
