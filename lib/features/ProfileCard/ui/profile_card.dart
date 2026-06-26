@@ -72,7 +72,7 @@ class ProfileCard extends StatelessWidget {
           ),
           SizedBox(height: 5),
           Text(
-            "Flutter Developer",
+           "Full Stack Mobile Developer",
             style: TextStyle(
               fontSize: (size.width * 0.01).clamp(14.0, 16.0),
               color: theme.colorScheme.primary,
