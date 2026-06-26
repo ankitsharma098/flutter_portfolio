@@ -22,6 +22,7 @@ class CustomErrorScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Padding(
+          
           padding: const EdgeInsets.all(24.0),
           child: SingleChildScrollView(
             child: Column(
